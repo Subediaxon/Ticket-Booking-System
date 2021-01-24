@@ -1,3 +1,4 @@
+import Navbar from "../components/Navbar";
 import { useHistory } from "react-router-dom";
 import { Grid, Typography, Button, Link, Paper, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -32,13 +33,14 @@ const Login = () => {
 
   return (
     <>
+      <Navbar />
       <Grid
         className={classes.loginStyles}
         container
         justify="center"
         alignContent="center"
       >
-        <Grid item xs={10} md={6} lg={5}>
+        <Grid item xs={10} md={6} lg={4}>
           <Paper className={classes.paperStyles}>
             <Box mb={5} fontWeight="fontWeightBold">
               <Typography variant="h5" component="h1" align="center">

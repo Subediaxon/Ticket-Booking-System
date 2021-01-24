@@ -1,12 +1,11 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Login from "./Pages/LoginPage";
+import Signup from "./Pages/SignupPage";
+import { BookingForm } from "./components/BookingForm";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Login />
+      <BookingForm />
     </>
   );
 }

@@ -15,9 +15,10 @@ const Navbar = () => {
             <a>Home</a>
           </li>
           <li>
-            <a>
-              <i class="fa fa-link"></i>Products
+            <a href="./SignupForm">
+              <i class="fa fa-link"></i>Signup
             </a>
+            {/*
             <ul class="subnav">
               <li>
                 <a>
@@ -35,10 +36,11 @@ const Navbar = () => {
                 </a>
               </li>
             </ul>
+        */}
           </li>
           <li>
-            <a>
-              <i class="fa fa-photo"></i>Images
+            <a href="..">
+              <i class="fa fa-photo"></i>Login
             </a>
           </li>
           <li>
