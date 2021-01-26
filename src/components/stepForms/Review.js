@@ -5,18 +5,23 @@ import {
   Accordion,
   ListItemText,
   IconButton,
+  LinearProgress,
 } from "@material-ui/core";
+import { Formik, Form, Field } from "formik";
 import AccordionDetail from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import EditIcon from "@material-ui/icons/Edit";
+import { defaultData } from "../BookingForm";
 
 export const Review = ({ formData, navigation }) => {
   const { go } = navigation;
   const {
+    destinationFrom,
+    destinationTo,
+    travelDate,
     firstName,
     lastName,
-    nickName,
     address,
     city,
     phone,
@@ -25,34 +30,50 @@ export const Review = ({ formData, navigation }) => {
 
   return (
     <Container maxWidth="xs">
-      <h3>Review</h3>
-      <RenderAccordion
-        summary="Names"
-        go={go}
-        details={[
-          { "First Name": firstName },
-          { "Last Name": lastName },
-          { Nickname: nickName },
-        ]}
-      />
-      <RenderAccordion
-        summary="Address"
-        go={go}
-        details={[{ Address: address }, { City: city }]}
-      />
-      <RenderAccordion
-        summary="Contact"
-        go={go}
-        details={[{ Phone: phone }, { Email: email }]}
-      />
-      <Button
-        color="primary"
-        variant="contained"
-        style={{ marginTop: "1.5rem" }}
-        onClick={() => go("submit")}
+      <Formik
+        initialValues={defaultData}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            setSubmitting(false);
+            alert(JSON.stringify(values, null, 2));
+          }, 500);
+        }}
       >
-        Submit
-      </Button>
+        {({ submitForm, isSubmitting }) => (
+          <Form>
+            <h3 style={{ marginBottom: "1rem" }}>Review</h3>
+            <RenderAccordion
+              summary="Names"
+              go={go}
+              details={[
+                { "Destination From": destinationFrom },
+                { "Destination To": destinationTo },
+                { "Travel Date": travelDate },
+              ]}
+            />
+            <RenderAccordion
+              summary="Address"
+              go={go}
+              details={[{ Address: address }, { City: city }]}
+            />
+            <RenderAccordion
+              summary="Contact"
+              go={go}
+              details={[{ Phone: phone }, { Email: email }]}
+            />
+            {isSubmitting && <LinearProgress />}
+
+            <Button
+              variant="contained"
+              color="primary"
+              disabled={isSubmitting}
+              onClick={submitForm}
+            >
+              Submit
+            </Button>
+          </Form>
+        )}
+      </Formik>
     </Container>
   );
 };

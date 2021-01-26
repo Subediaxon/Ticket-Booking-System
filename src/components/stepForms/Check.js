@@ -1,14 +1,20 @@
 import * as React from "react";
 import { Formik, Form, Field } from "formik";
-import { Button, LinearProgress, Container } from "@material-ui/core";
+import { Button, LinearProgress } from "@material-ui/core";
+import { DatePicker } from "formik-material-ui-pickers";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import { format } from "@date-io/moment";
 
-export const Submit = () => {
+// Depending on the library you picked
+import DateFnsUtils from "@date-io/date-fns";
+import MomentUtils from "@date-io/moment";
+
+export function Check({ navigation }) {
   return (
-    <Container maxWidth="sm" style={{ marginTop: "4rem" }}>
-      <h3>Thank you for submitting, we will be in touch!</h3>
+    <MuiPickersUtilsProvider utils={MomentUtils}>
       <Formik
         initialValues={{
-          time: new Date(),
+          time: "",
         }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
@@ -19,6 +25,9 @@ export const Submit = () => {
       >
         {({ submitForm, isSubmitting }) => (
           <Form>
+            <Field component={DatePicker} name="date" label="Date" />
+            <br />
+
             {isSubmitting && <LinearProgress />}
             <br />
             <Button
@@ -32,6 +41,6 @@ export const Submit = () => {
           </Form>
         )}
       </Formik>
-    </Container>
+    </MuiPickersUtilsProvider>
   );
-};
+}
