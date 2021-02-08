@@ -5,6 +5,7 @@ import { TextField } from "formik-material-ui";
 import * as yup from "yup";
 import { defaultData } from "../BookingForm";
 
+//for the date picker
 import { DatePicker } from "formik-material-ui-pickers";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 
@@ -12,13 +13,7 @@ import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 
 export const Booking = ({ formData, setForm, navigation }) => {
-  const {
-    firstName,
-    lastName,
-    destinationFrom,
-    destinationTo,
-    travelDate,
-  } = formData;
+  const { destinationFrom, destinationTo, travelDate } = formData;
 
   let schema = yup.object().shape({
     destinationFrom: yup.string().required("Destination is required"),
@@ -29,7 +24,7 @@ export const Booking = ({ formData, setForm, navigation }) => {
     //available sizes: lg","md","sm","xl","xs"
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Container maxWidth="xs">
-        <Formik initialValues={defaultData} validationSchema={schema}>
+        <Formik initialValues={defaultData}>
           <Form style={{ marginTop: "1rem" }}>
             <center>
               <h1>Booking</h1>
@@ -61,11 +56,9 @@ export const Booking = ({ formData, setForm, navigation }) => {
             <Field
               label="Travel Date"
               name="travelDate"
-              value={travelDate}
               component={DatePicker}
-              variant="outlined"
               margin="normal"
-              onChange={setForm}
+              // onChange={setForm}
               fullWidth
             />
             <Box mt="1rem" mb="1rem">
@@ -78,31 +71,6 @@ export const Booking = ({ formData, setForm, navigation }) => {
                 <option value="night">Night</option>
               </Field>
             </Box>
-
-            {/* 
-            <Field
-              label="First Name"
-              name="firstname"
-              value={firstName}
-              component={TextField}
-              type="textfield"
-              variant="outlined"
-              margin="normal"
-              onChange={setForm}
-              fullWidth
-            />
-            <Field
-              label="Last Name"
-              name="lastName"
-              value={lastName}
-              component={TextField}
-              type="textfield"
-              onChange={setForm}
-              variant="outlined"
-              margin="normal"
-              variant="outlined"
-              fullWidth
-            /> */}
 
             <Button
               variant="contained"

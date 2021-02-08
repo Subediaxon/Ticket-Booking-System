@@ -1,15 +1,15 @@
 import React from "react";
 import { useForm, useStep } from "react-hooks-helper";
-import { Address, Info } from "./stepForms/Info";
 import { Booking } from "./stepForms/Booking";
 import { Review } from "./stepForms/Review";
 import { Submit } from "./stepForms/Submit";
 import { Check } from "./stepForms/Check";
+import { Information } from "./stepForms/Info";
 
 export const defaultData = {
   destinationFrom: "",
   destinationTo: "",
-  travelDate: "",
+  travelDate: new Date(),
   firstName: "",
   lastName: "",
   address: "",
@@ -20,9 +20,9 @@ export const defaultData = {
 const steps = [
   { id: "bookings" },
   // { id: "check" },
-  { id: "info" },
+  { id: "information" },
   { id: "review" },
-  { id: "submit" },
+  // { id: "submit" },
 ];
 
 export const BookingForm = () => {
@@ -33,8 +33,8 @@ export const BookingForm = () => {
   switch (step.id) {
     case "bookings":
       return <Booking {...props} />;
-    case "info":
-      return <Info {...props} />;
+    case "information":
+      return <Information {...props} />;
     case "review":
       return <Review {...props} />;
     case "submit":
@@ -44,10 +44,4 @@ export const BookingForm = () => {
     default:
       return <div>No page found</div>;
   }
-
-  // return (
-  //   <div>
-  //     <h1>Booking form</h1>
-  //   </div>
-  // );
 };

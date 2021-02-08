@@ -1,71 +1,49 @@
 import "./css/navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div class="logo_nav_div">
       <div class="logo">
-        <a>
+        <Link to="/">
           <img id="main-logo" src="./island-travel-logo.jpg"></img>
-        </a>
+        </Link>
       </div>
 
       <div class="navbar">
         <ul class="main-nav">
-          <li>
-            <a>Home</a>
-          </li>
-          <li>
-            <a href="./SignupForm">
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          <Link to="/Signup">
+            <li>
               <i class="fa fa-link"></i>Signup
-            </a>
-            {/*
-            <ul class="subnav">
-              <li>
-                <a>
-                  <i class="fa fa-laptop"></i>Product 1
-                </a>
-              </li>
-              <li>
-                <a>
-                  <i class="fa fa-television"></i>Product 2
-                </a>
-              </li>
-              <li>
-                <a>
-                  <i class="fa fa-mobile"></i>Product 3
-                </a>
-              </li>
-            </ul>
-        */}
-          </li>
-          <li>
-            <a href="..">
+            </li>
+          </Link>
+          <Link to="/Login">
+            <li>
               <i class="fa fa-photo"></i>Login
-            </a>
-          </li>
-          <li>
-            <a>
-              <i class="fa fa-book"></i>About Us
-            </a>
+            </li>
+          </Link>
 
+          <li>
+            <i class="fa fa-book"></i>About Us
             <ul class="subnav">
-              <li>
-                <a>
+              <Link to="/Address">
+                <li>
                   <i class="fa fa-map"></i> Address
-                </a>
-              </li>
-              <li>
-                <a>
+                </li>
+              </Link>
+              <Link to="/Details">
+                <li>
                   <i class="fa fa-list"></i>Details
-                </a>
-              </li>
+                </li>
+              </Link>
             </ul>
           </li>
-          <li>
-            <a>
-              <i class="fa fa-phone"></i>Contact Us
-            </a>
-          </li>
+          <Link to="/Booking">
+            <li>Booking</li>
+          </Link>
         </ul>
       </div>
     </div>

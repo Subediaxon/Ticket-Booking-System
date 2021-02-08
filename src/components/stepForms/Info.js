@@ -4,23 +4,24 @@ import { defaultData } from "../BookingForm";
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
 
-export const Info = ({ formData, setForm, navigation }) => {
+export const Information = ({ formData, setForm, navigation }) => {
   const { firstName, lastName, address, city, phone, email } = formData;
 
   let schema = yup.object().shape({
     address: yup.string().required("address is required"),
     city: yup.string().required("city  is required"),
-    phone: yup.string().typepositive().required("phone  is required"),
-    email: yup.string().typeemail().required("email  is required"),
+    phone: yup.string().required("phone  is required"),
+    email: yup.string().required("email  is required"),
   });
+
   return (
     <Container maxWidth="xs">
-      <Formik initialValues={defaultData} validationSchema={schema}>
+      <Formik initialValues={defaultData}>
         <Form style={{ marginTop: "1rem" }}>
           <center>
-            <h1>Name</h1>
+            <h1>Primary Information</h1>
           </center>
-          <Field
+          {/* <Field
             label="First Name"
             name="firstname"
             value={firstName}
@@ -42,11 +43,31 @@ export const Info = ({ formData, setForm, navigation }) => {
             margin="normal"
             variant="outlined"
             fullWidth
+          /> */}
+          <TextField
+            label="First Name"
+            name="firstName"
+            value={firstName}
+            onChange={setForm}
+            margin="normal"
+            variant="outlined"
+            autoComplete="off"
+            fullWidth
+          />
+          <TextField
+            label="Last Name"
+            name="lastName"
+            value={lastName}
+            onChange={setForm}
+            margin="normal"
+            variant="outlined"
+            autoComplete="off"
+            fullWidth
           />
           <center>
-            <h1>Booking</h1>
+            <h1>Address</h1>
           </center>
-          <h3>Address</h3>
+
           <TextField
             label="Address"
             name="address"
@@ -67,7 +88,9 @@ export const Info = ({ formData, setForm, navigation }) => {
             autoComplete="off"
             fullWidth
           />
-          <h3>Contact</h3>
+          <center>
+            <h1>Contact Information</h1>
+          </center>
           <TextField
             label="phone"
             name="phone"
@@ -103,7 +126,6 @@ export const Info = ({ formData, setForm, navigation }) => {
             <Button
               variant="contained"
               color="primary"
-              w
               onClick={() => navigation.next()}
             >
               Next

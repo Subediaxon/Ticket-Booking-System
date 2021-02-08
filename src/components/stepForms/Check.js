@@ -9,12 +9,12 @@ import { format } from "@date-io/moment";
 import DateFnsUtils from "@date-io/date-fns";
 import MomentUtils from "@date-io/moment";
 
-export function Check({ navigation }) {
+export function Check() {
   return (
-    <MuiPickersUtilsProvider utils={MomentUtils}>
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Formik
         initialValues={{
-          time: "",
+          date: new Date(),
         }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {

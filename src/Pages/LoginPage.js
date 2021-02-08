@@ -1,14 +1,9 @@
-import Navbar from "../components/Navbar";
 import { useHistory } from "react-router-dom";
 import { Grid, Typography, Button, Link, Paper, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { GTranslate } from "@material-ui/icons/";
-import Form from "../components/LoginForm";
-import FormikForm from "../components/LoginForm";
+import LoginForm from "../components/LoginForm";
 
-/*
-import DividerWithText from "../Components/DividerWithText";
-*/
 const useStyles = makeStyles({
   paperStyles: {
     padding: "2rem 3rem",
@@ -27,13 +22,13 @@ const Login = () => {
     event.preventDefault();
     history.push("/password/request");
   };
+
   const handleGoogleOauth = () => {
     window.location.href = "http://localhost:4000/api/auth/google";
   };
 
   return (
     <>
-      <Navbar />
       <Grid
         className={classes.loginStyles}
         container
@@ -62,7 +57,7 @@ const Login = () => {
                 Continue with Google
               </Button>
             </Box>
-            <FormikForm />
+            <LoginForm />
             <Link href="#" onClick={pushToForgotPass}>
               <Typography align="center">I forgot my password</Typography>
             </Link>

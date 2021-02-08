@@ -32,10 +32,10 @@ export const Review = ({ formData, navigation }) => {
     <Container maxWidth="xs">
       <Formik
         initialValues={defaultData}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(formData, { setSubmitting }) => {
           setTimeout(() => {
             setSubmitting(false);
-            alert(JSON.stringify(values, null, 2));
+            alert(JSON.stringify(formData, null, 2));
           }, 500);
         }}
       >
@@ -43,7 +43,7 @@ export const Review = ({ formData, navigation }) => {
           <Form>
             <h3 style={{ marginBottom: "1rem" }}>Review</h3>
             <RenderAccordion
-              summary="Names"
+              summary="Bookings"
               go={go}
               details={[
                 { "Destination From": destinationFrom },
@@ -52,15 +52,18 @@ export const Review = ({ formData, navigation }) => {
               ]}
             />
             <RenderAccordion
-              summary="Address"
+              summary="Information"
               go={go}
-              details={[{ Address: address }, { City: city }]}
+              details={[
+                { "First Name": firstName },
+                { "Last Name": lastName },
+                { Address: address },
+                { City: city },
+                { "Contact Number": phone },
+                { Email: email },
+              ]}
             />
-            <RenderAccordion
-              summary="Contact"
-              go={go}
-              details={[{ Phone: phone }, { Email: email }]}
-            />
+
             {isSubmitting && <LinearProgress />}
 
             <Button
