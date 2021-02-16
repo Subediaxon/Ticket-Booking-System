@@ -3,11 +3,9 @@ import { Formik, Form, Field } from "formik";
 import { Button, LinearProgress } from "@material-ui/core";
 import { DatePicker } from "formik-material-ui-pickers";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
-import { format } from "@date-io/moment";
 
 // Depending on the library you picked
 import DateFnsUtils from "@date-io/date-fns";
-import MomentUtils from "@date-io/moment";
 
 export function Check() {
   return (

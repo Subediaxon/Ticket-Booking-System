@@ -15,34 +15,36 @@ const Navbar = () => {
           <Link to="/">
             <li>Home</li>
           </Link>
-          <Link to="/Signup">
-            <li>
-              <i class="fa fa-link"></i>Signup
-            </li>
+          <Link to="/Booking">
+            <li>Booking</li>
           </Link>
+
+          <li>
+            <Link>
+              <i class="fa fa-book"></i>About Us
+              <ul class="subnav">
+                <Link to="/Address">
+                  <li>
+                    <i class="fa fa-map"></i> Address
+                  </li>
+                </Link>
+                <Link to="/Details">
+                  <li>
+                    <i class="fa fa-list"></i>Details
+                  </li>
+                </Link>
+              </ul>
+            </Link>
+          </li>
           <Link to="/Login">
             <li>
               <i class="fa fa-photo"></i>Login
             </li>
           </Link>
-
-          <li>
-            <i class="fa fa-book"></i>About Us
-            <ul class="subnav">
-              <Link to="/Address">
-                <li>
-                  <i class="fa fa-map"></i> Address
-                </li>
-              </Link>
-              <Link to="/Details">
-                <li>
-                  <i class="fa fa-list"></i>Details
-                </li>
-              </Link>
-            </ul>
-          </li>
-          <Link to="/Booking">
-            <li>Booking</li>
+          <Link to="/Signup">
+            <li>
+              <i class="fa fa-link"></i>Signup
+            </li>
           </Link>
         </ul>
       </div>
