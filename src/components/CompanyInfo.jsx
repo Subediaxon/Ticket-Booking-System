@@ -9,7 +9,8 @@ import facebookIcon from '@iconify/icons-mdi/facebook'
 import linkedinIcon from '@iconify/icons-mdi/linkedin'
 import twitterIcon from '@iconify/icons-mdi/twitter'
 
-import './info.css'
+import './css/info.css'
+import { Link } from 'react-router-dom'
 
 const contactDetails = [
   {
@@ -29,18 +30,32 @@ const renderContactDetails = () =>
 
 const renderIcons = () =>
   [facebookIcon, linkedinIcon, twitterIcon].map((icon, key) => (
+    <Link>
+    
     <Icon icon={icon} key={key} className="info-icon" />
+    </Link>
   ))
 
 const Info = () => (
     <Paper>
-  <section className="info">
+ 
     <h2 className="info-h2">Contact information</h2>
+    <section  className="flex-container">
+    <image className='company-logo'>
+    <img id="main-logo" src="./island-travel-logo.jpg" alt="placeholder company logo"></img>
+    </image>
+    <section className="info">
+  
 
     <div className="info-details-container">{renderContactDetails()}</div>
 
     <div className="info-icons-container">{renderIcons()}</div>
+  
   </section>
+    </section>
+    
+    
+    
   </Paper>
 )
 

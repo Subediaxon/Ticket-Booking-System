@@ -5,8 +5,8 @@ import { Button, LinearProgress, Box } from "@material-ui/core";
 import * as yup from "yup";
 
 const validator = yup.object({
-  email: yup.string().email().required(),
-  password: yup.string().required(),
+  email: yup.string().email().required("Enter your email"),
+  password: yup.string().required("Enter your password"),
 });
 const formInitValues = {
   email: "",
@@ -26,6 +26,7 @@ const LoginForm = () => {
               name="email"
               type="email"
               label="Email"
+              placeholder="example@example.com"
               fullWidth
             />
           </Box>

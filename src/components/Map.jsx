@@ -3,7 +3,7 @@ import GoogleMapReact from 'google-map-react'
 import { Icon } from '@iconify/react'
 import locationIcon from '@iconify/icons-mdi/map-marker'
 
-import './map.css'
+import './css/map.css'
 
 const LocationPin = ({ text }) => (
   <div className="pin">

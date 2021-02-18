@@ -30,12 +30,12 @@ const Login = () => {
   return (
     <>
       <Grid
-        className={classes.loginStyles}
         container
+        className={classes.loginStyles}
         justify="center"
         alignContent="center"
       >
-        <Grid item xs={10} md={6} lg={4}>
+        <Grid item xs={10} md={4} lg={6}>
           <Paper className={classes.paperStyles}>
             <Box mb={5} fontWeight="fontWeightBold">
               <Typography variant="h5" component="h1" align="center">

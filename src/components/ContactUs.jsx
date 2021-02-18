@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react'
 import sendCircle from '@iconify/icons-mdi/send-circle'
 import {Paper } from "@material-ui/core";
 
-import './contactUs.css'
+import './css/contactUs.css'
 
 const formInputs = [
   { id: 'name', type: 'text', label: 'Your name', placeholder: 'John Doe' },
@@ -11,7 +11,7 @@ const formInputs = [
     id: 'tel',
     type: 'tel',
     label: 'Phone number',
-    placeholder: '+01 234 567 8900',
+    placeholder: '+977 123-4567890',
   },
   {
     id: 'email',

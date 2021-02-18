@@ -18,8 +18,11 @@ const validator = yup.object({
   confirmPassword: yup.string().required(),
 });
 const formInitValues = {
+  firstName: "",
+  lastName: "",
   email: "",
   password: "",
+  confirmPassword: "",
 };
 /*
 const theme = createMuiTheme({
@@ -36,76 +39,73 @@ const SignupForm = () => {
       <Formik initialValues={formInitValues} validationSchema={validator}>
         {({ submitForm, isSubmitting }) => (
           <Form>
-            <Paper>
-              <Grid container maxWidth="xs" justify="center">
-                <Grid item>
-                  <Box mb={2}>
-                    <Typography variant={"h4"}>Let's Sign up</Typography>
-                  </Box>
-                  <Box mb={2}>
-                    <TextField
-                      variant="standard"
-                      color="primary"
-                      label="First Name"
-                      name="firstName"
-                      required
-                    ></TextField>
-                    <TextField
-                      variant="standard"
-                      color="primary"
-                      label="Last Name"
-                      name="lastName"
-                      required
-                    ></TextField>
-                  </Box>
-                  <Box>
-                    <Box mb={2}>
-                      <TextField
-                        variant="standard"
-                        color="primary"
-                        label="Email"
-                        type="Email Address"
-                        placeholder="test@test.com"
-                        name="email"
-                        required
-                        fullWidth
-                      ></TextField>
-                    </Box>
-
-                    {/*PAssword Field */}
-                    <Box mb={2}>
-                      <TextField
-                        variant="standard"
-                        color="primary"
-                        label="Password"
-                        type="Password"
-                        name="password"
-                        required
-                      ></TextField>
-
-                      <TextField
-                        variant="standard"
-                        color="primary"
-                        label="Confirm Password"
-                        type="Password"
-                        name="confirmPassword"
-                        required
-                      ></TextField>
-                    </Box>
-
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      maxWidth={"xs"}
-                      disabled={isSubmitting}
-                      onClick={submitForm}
-                    >
-                      Submit
-                    </Button>
-                  </Box>
-                </Grid>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <Box mb={2}>
+                  <TextField
+                    name="firstName"
+                    label="First Name"
+                    variant="outlined"
+                  ></TextField>
+                </Box>
               </Grid>
-            </Paper>
+              <Grid item xs={12} sm={6}>
+                <Box mb={2}>
+                  <TextField
+                    name="lastName"
+                    label="Last Name"
+                    variant="outlined"
+                  ></TextField>
+                </Box>
+              </Grid>
+              <Grid item xs={12}>
+                <Box mb={2}>
+                  <TextField
+                    name="email"
+                    label="Email"
+                    type="email"
+                    variant="outlined"
+                    placeholder="test@test.com"
+                    fullWidth
+                  ></TextField>
+                </Box>
+              </Grid>
+
+              <Grid item xs={12} sm={6}>
+                {/*PAssword Field */}
+
+                <Box mb={2}>
+                  <TextField
+                    name="password"
+                    label="Password"
+                    type="Password"
+                    variant="outlined"
+                  ></TextField>
+                </Box>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <Box mb={2}>
+                  <TextField
+                    name="confirmPassword"
+                    label="Confirm Password"
+                    type="Password"
+                    variant="outlined"
+                  ></TextField>
+                </Box>
+              </Grid>
+            </Grid>
+
+            <Box mb={2}>
+              <Button
+                variant="contained"
+                color="primary"
+                fullWidth
+                disabled={isSubmitting}
+                onClick={submitForm}
+              >
+                Submit
+              </Button>
+            </Box>
           </Form>
         )}
       </Formik>

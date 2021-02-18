@@ -1,5 +1,5 @@
 import React from "react";
-import Map from "./prac/Map";
+import Map from "../components/Map";
 
 // Must change the location to something else
 

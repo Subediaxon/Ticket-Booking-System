@@ -1,6 +1,6 @@
 import React from "react";
-import Info from "./prac/Info";
-import ContactUs from "./prac/ContactUs";
+import Info from "../components/CompanyInfo";
+import ContactUs from "../components/ContactUs";
 
 const Details = () => {
   return (

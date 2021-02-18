@@ -19,6 +19,7 @@ body {
 .logo_nav_div {
   display: flex;
   justify-content: space-between;
+  position: sticky;
 
   height: 50px;
   width: 100%;
