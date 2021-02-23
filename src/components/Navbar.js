@@ -1,52 +1,65 @@
 import "./css/navbar.css";
+import Logopic from "../pictures/island-travel-logo.jpg";
 import { Link } from "react-router-dom";
+
+import { Icon } from "@iconify/react";
+import barsIcon from "@iconify-icons/fa/bars";
+import { Button } from "@material-ui/core";
+
+function click() {
+  //const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+  const links = document.querySelectorAll(".links");
+
+  navLinks.classList.toggle("open");
+  links.forEach((link) => {
+    link.classList.toggle("fade");
+  });
+}
 
 const Navbar = () => {
   return (
     <div class="logo_nav_div">
       <div class="logo">
         <Link to="/">
-          <img id="main-logo" src="./island-travel-logo.jpg"></img>
+          <img id="main-logo" src={Logopic}></img>
         </Link>
       </div>
 
-      <div class="navbar">
-        <ul class="main-nav">
+      <div className="navbar">
+        <ul className="main-nav nav-links">
           <Link to="/">
-            <li>Home</li>
+            <li className="links">Home</li>
           </Link>
           <Link to="/Booking">
-            <li>Booking</li>
+            <li className="links">Booking</li>
           </Link>
 
           <li>
             <Link>
-              <i class="fa fa-book"></i>About Us
+              About
               <ul class="subnav">
                 <Link to="/Address">
-                  <li>
-                    <i class="fa fa-map"></i> Address
-                  </li>
+                  <li className="links">Address</li>
                 </Link>
                 <Link to="/Details">
-                  <li>
-                    <i class="fa fa-list"></i>Details
-                  </li>
+                  <li className="links">Details</li>
                 </Link>
               </ul>
             </Link>
           </li>
           <Link to="/Login">
-            <li>
-              <i class="fa fa-photo"></i>Login
-            </li>
+            <li className="links">Login</li>
           </Link>
           <Link to="/Signup">
-            <li>
-              <i class="fa fa-link"></i>Signup
-            </li>
+            <li className="links">Signup</li>
           </Link>
         </ul>
+      </div>
+      <div class="hamburger">
+        <Button onClick={click}>
+          <Icon icon={barsIcon} />
+        </Button>
       </div>
     </div>
   );

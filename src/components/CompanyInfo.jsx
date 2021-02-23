@@ -10,6 +10,7 @@ import linkedinIcon from '@iconify/icons-mdi/linkedin'
 import twitterIcon from '@iconify/icons-mdi/twitter'
 
 import './css/info.css'
+import Logopic from '../pictures/island-travel-logo.jpg'
 import { Link } from 'react-router-dom'
 
 const contactDetails = [
@@ -42,7 +43,7 @@ const Info = () => (
     <h2 className="info-h2">Contact information</h2>
     <section  className="flex-container">
     <image className='company-logo'>
-    <img id="main-logo" src="./island-travel-logo.jpg" alt="placeholder company logo"></img>
+    <img id="main-logo" src={Logopic} alt="placeholder company logo"></img>
     </image>
     <section className="info">
   

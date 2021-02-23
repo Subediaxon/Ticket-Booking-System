@@ -1,146 +1,131 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
 
-/*Global Declarations*/
-* {
-  font-size: 25px;
-  text-decoration: none;
-}
-i {
-  margin-right: 10px;
-}
-
-body {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top right;
-  background-blend-mode: soft-light;
-}
-/*For header div*/
-.logo_nav_div {
-  display: flex;
-  justify-content: space-between;
-  position: sticky;
-
-  height: 50px;
-  width: 100%;
-  background-color: #1fa375;
-}
-
-.logo {
-  flex: 1;
-  width: 50px;
-  height: 50px;
-}
-
-#main-logo {
-  width: 100%;
-  height: 100%;
-}
-.navbar {
-  flex: 5;
-}
-/*Main nav*/
-.main-nav li a {
-  color: black;
-  display: block;
-}
-.main-nav li a:hover {
-  background-color: #134936;
-  color: #ee37df;
-  padding-left: 20px;
-  transition: all 0.7s ease;
-}
-
-/********for subnav************/
-.subnav li {
-  display: none;
-}
-
-/************** For footer ***************/
-footer {
-  background-color: #26dc9c;
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  line-height: 1.5;
-  font-size: 80%;
-  color: #543f35;
-  position: fixed;
-  bottom: 0;
-}
-
-footer a {
-  font-size: 70%;
-}
-
-/*Media Queries*/
-@media screen and (min-width: 750px) {
-  .checkbox {
-    display: none;
+@media screen and (min-width: 836px) {
+  /*For header div*/
+  .logo_nav_div {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    background-color: #1fa375;
   }
+
+  .logo {
+    flex: 1;
+
+    height: 50px;
+  }
+
+  #main-logo {
+    width: 100%;
+    height: 100%;
+  }
+  .navbar {
+    flex: 2;
+  }
+  .hamburger {
+    visibility: hidden;
+  }
+  /*For main-navigation bar*/
+
   .main-nav li {
     float: left;
+    background-color: #1fa375;
     width: 20%;
     height: 50px;
     line-height: 50px;
     text-align: center;
-    opacity: 0.5;
+    opacity: 1;
+  }
+
+  .main-nav li {
+    color: black;
+    display: block;
+  }
+
+  .main-nav li:hover {
+    background-color: #134936;
+    color: orangered;
+    padding-left: 30px;
+    opacity: 1;
+    transition: all 0.7s ease;
+  }
+
+  /*for subnav*/
+  .subnav li {
+    display: none;
   }
 
   .main-nav li:hover .subnav li {
     display: flex;
     flex-direction: column;
     width: 100%;
-    opacity: 100%;
   }
 }
-
-@media screen and (max-width: 749.9px) {
-  /*For main-navigation bar*/
-  .navbar {
-    position: absolute;
-    left: -300px;
-    width: 230px;
-    height: 100vh;
-    background-color: #26dc9c;
-    opacity: 50%;
-    z-index: 5;
-  }
-  .navbar.toggle {
-    left: 0;
-  }
-  .navbar:hover {
-    opacity: 60%;
-  }
-  .main-nav {
+@media screen and (max-width: 835.99px) {
+  /*For header div*/
+  .logo_nav_div {
     display: block;
-    line-height: 80px;
-    margin-left: 10px;
-  }
-  .main-nav li:hover .subnav li {
-    display: inline-block;
-    width: 100%;
-    transition: all 0.9s ease-in-out;
-  }
-  #btn,
-  #cancel {
-    position: absolute;
-    cursor: pointer;
-    border-radius: 3px;
-    color: #47a369;
-  }
-  #btn {
-    color: #47a369;
-    font-size: 25px;
-    padding: 8px 8px;
+    height: 50px;
+    background-color: #1fa375;
   }
 
-  #cancel {
-    z-index: 999;
-    left: -195px;
-    top: 17px;
-    font-size: 30px;
-    padding: 4px 9px;
-    transition: all 0.5s;
+  .logo {
+    width: 200px;
+    height: 50px;
+  }
+
+  #main-logo {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    visibility: unset;
+    cursor: pointer;
+  }
+  .navbar {
+    visibility: none;
+  }
+
+  .main-nav li:hover {
+    color: orangered;
+    padding-left: 20px;
+    transition: all 0.7s ease;
+  }
+  .nav-links:nth-child(3) {
+    visibility: hidden;
+  }
+
+  .nav-links {
+    position: fixed;
+    width: 100%;
+    height: 70%;
+    background-color: #1fa375;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    pointer-events: none;
+    clip-path: circle(100px at 98% -45%);
+    -webkit-clip-path: circle(100px at 98% -45%);
+    transition: all 1.2s ease-in;
+  }
+
+  .open {
+    clip-path: circle(2000px at 110% -10%);
+    -webkit-clip-path: circle(2000px at 110% -10%);
+    pointer-events: all;
+  }
+
+  .links {
+    opacity: 0;
+    font-size: 150%;
+  }
+
+  .links.fade {
+    opacity: 1;
   }
 }
