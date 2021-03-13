@@ -1,7 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { Grid, Typography, Button, Link, Paper, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { GTranslate } from "@material-ui/icons/";
 import LoginForm from "../components/LoginForm";
 
 const useStyles = makeStyles({
@@ -23,10 +22,6 @@ const Login = () => {
     history.push("/password/request");
   };
 
-  const handleGoogleOauth = () => {
-    window.location.href = "http://localhost:4000/api/auth/google";
-  };
-
   return (
     <>
       <Grid
@@ -45,18 +40,7 @@ const Login = () => {
                 Destination Awaits
               </Typography>
             </Box>
-            <Box mb={5}>
-              <Button
-                onClick={handleGoogleOauth}
-                variant="contained"
-                color="primary"
-                size="large"
-                startIcon={<GTranslate />}
-                fullWidth
-              >
-                Continue with Google
-              </Button>
-            </Box>
+
             <LoginForm />
             <Link href="#" onClick={pushToForgotPass}>
               <Typography align="center">I forgot my password</Typography>

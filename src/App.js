@@ -1,4 +1,12 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useContext } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { UserContextProvider, UserContext } from "./context/userContext";
 
 import Landing from "./Pages/LandingPage";
 import Signup from "./Pages/SignupPage";
@@ -10,19 +18,57 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import { BookingForm } from "./components/BookingForm";
 
+const queryClient = new QueryClient();
+
+const UnauthenticatedRoutes = ({ children: Children, ...rest }) => {
+  const auth = useContext(UserContext);
+  return (
+    <Route
+      {...rest}
+      render={() =>
+        !auth.isAuthenticated() ? <Children /> : <Redirect to="/" />
+      }
+    ></Route>
+  );
+};
+
+const AuthenticatedRoute = ({ children: Children, ...rest }) => {
+  const auth = useContext(UserContext);
+  return (
+    <Route
+      {...rest}
+      render={() =>
+        auth.isAuthenticated() ? <Children /> : <Redirect to="/login" />
+      }
+    ></Route>
+  );
+};
+
+const AppRoutes = () => {
+  return (
+    <Switch>
+      <AuthenticatedRoute path="/" exact>
+        {Landing}
+      </AuthenticatedRoute>
+      <AuthenticatedRoute path="/Booking">{BookingForm}</AuthenticatedRoute>
+      <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
+      <AuthenticatedRoute path="/Details">{Details}</AuthenticatedRoute>
+      <UnauthenticatedRoutes path="/Login">{Login}</UnauthenticatedRoutes>
+      <UnauthenticatedRoutes path="/Signup">{Signup}</UnauthenticatedRoutes>
+    </Switch>
+  );
+};
+
 function App() {
   return (
     <>
       <Router>
-        <Navbar />
-        <Switch>
-          <Route path="/" exact component={Landing} />
-          <Route path="/Login" component={Login} />
-          <Route path="/Signup" component={Signup} />
-          <Route path="/Booking" component={BookingForm} />
-          <Route path="/Address" component={Address} />
-          <Route path="/Details" component={Details} />
-        </Switch>
+        <QueryClientProvider client={queryClient}>
+          <UserContextProvider>
+            <Navbar />
+            <AppRoutes />
+          </UserContextProvider>
+        </QueryClientProvider>
       </Router>
     </>
   );

@@ -1,14 +1,9 @@
-import {
-  Button,
-  TextField,
-  Box,
-  Typography,
-  Grid,
-  Paper,
-} from "@material-ui/core/";
+import { Button, TextField, Box, Grid, Paper } from "@material-ui/core/";
 /*import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";*/
 import * as yup from "yup";
 import { Formik, Form } from "formik";
+import { useAuth } from "../hooks/useAuth";
+import { useHistory } from "react-router";
 
 const validator = yup.object({
   firstName: yup.string().required(),
@@ -34,6 +29,20 @@ const theme = createMuiTheme({
 });*/
 
 const SignupForm = () => {
+  const { mutate: SignupMutate } = useAuth("signup");
+  const history = useHistory();
+
+  const handleSignup = (values, { setSubmitting }) => {
+    SignupMutate(
+      { path: "/signup", credentials: values },
+      {
+        onSuccess: (data) => {
+          history.push("/");
+        },
+        onError: (error) => setSubmitting(false),
+      }
+    );
+  };
   return (
     <>
       <Formik initialValues={formInitValues} validationSchema={validator}>

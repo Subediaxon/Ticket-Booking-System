@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { UserContext } from "../context/userContext";
 import "./css/navbar.css";
 import Logopic from "../pictures/island-travel-logo.jpg";
 import { Link } from "react-router-dom";
@@ -18,6 +20,8 @@ function click() {
 }
 
 const Navbar = () => {
+  const userContext = useContext(UserContext);
+
   return (
     <div class="logo_nav_div">
       <div class="logo">
@@ -28,32 +32,42 @@ const Navbar = () => {
 
       <div className="navbar">
         <ul className="main-nav nav-links">
-          <Link to="/">
-            <li className="links">Home</li>
-          </Link>
-          <Link to="/Booking">
-            <li className="links">Booking</li>
-          </Link>
+          {userContext.isAuthenticated() ? (
+            <>
+              <Link to="/">
+                <li className="links">Home</li>
+              </Link>
+              <Link to="/Booking">
+                <li className="links">Booking</li>
+              </Link>
 
-          <li>
-            <Link>
-              About
-              <ul class="subnav">
-                <Link to="/Address">
-                  <li className="links">Address</li>
+              <li>
+                <Link>
+                  About
+                  <ul class="subnav">
+                    <Link to="/Address">
+                      <li className="links">Address</li>
+                    </Link>
+                    <Link to="/Details">
+                      <li className="links">Details</li>
+                    </Link>
+                  </ul>
                 </Link>
-                <Link to="/Details">
-                  <li className="links">Details</li>
-                </Link>
-              </ul>
-            </Link>
-          </li>
-          <Link to="/Login">
-            <li className="links">Login</li>
-          </Link>
-          <Link to="/Signup">
-            <li className="links">Signup</li>
-          </Link>
+              </li>
+              <li className="links" onClick={userContext.logout}>
+                logout
+              </li>
+            </>
+          ) : (
+            <>
+              <Link to="/Login">
+                <li className="links">Login</li>
+              </Link>
+              <Link to="/Signup">
+                <li className="links">Signup</li>
+              </Link>
+            </>
+          )}
         </ul>
       </div>
       <div class="hamburger">
