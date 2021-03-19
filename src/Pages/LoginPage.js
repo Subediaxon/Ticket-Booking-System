@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import { Grid, Typography, Button, Link, Paper, Box } from "@material-ui/core";
+import { Grid, Typography, Link, Paper, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import LoginForm from "../components/LoginForm";
 

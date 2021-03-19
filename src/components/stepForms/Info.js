@@ -1,137 +1,122 @@
-import React from "react";
-import { Container, TextField, Button, ButtonGroup } from "@material-ui/core";
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext";
 import { defaultData } from "../BookingForm";
+import {
+  Container,
+  Button,
+  ButtonGroup,
+  Paper,
+  Box,
+  Typography,
+} from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
-import * as yup from "yup";
+import { TextField } from "formik-material-ui";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  paperStyles: {
+    padding: "2rem 2rem",
+    marginTop: "1.5rem",
+  },
+});
 
 export const Information = ({ formData, setForm, navigation }) => {
-  const { firstName, lastName, address, city, phone, email } = formData;
+  const {
+    userData: { userInfo },
+  } = useContext(UserContext);
 
-  let schema = yup.object().shape({
-    address: yup.string().required("address is required"),
-    city: yup.string().required("city  is required"),
-    phone: yup.string().required("phone  is required"),
-    email: yup.string().required("email  is required"),
-  });
+  const classes = useStyles();
+  const { fullName, city, phone, email } = formData;
 
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth="sm">
       <Formik initialValues={defaultData}>
-        <Form style={{ marginTop: "1rem" }}>
-          <center>
-            <h1>Primary Information</h1>
-          </center>
-          {/* <Field
-            label="First Name"
-            name="firstname"
-            value={firstName}
-            component={TextField}
-            type="textfield"
-            variant="outlined"
-            margin="normal"
-            onChange={setForm}
-            fullWidth
-          />
-          <Field
-            label="Last Name"
-            name="lastName"
-            value={lastName}
-            component={TextField}
-            type="textfield"
-            onChange={setForm}
-            variant="outlined"
-            margin="normal"
-            variant="outlined"
-            fullWidth
-          /> */}
-          <TextField
-            label="First Name"
-            name="firstName"
-            value={firstName}
-            onChange={setForm}
-            margin="normal"
-            variant="outlined"
-            autoComplete="off"
-            fullWidth
-          />
-          <TextField
-            label="Last Name"
-            name="lastName"
-            value={lastName}
-            onChange={setForm}
-            margin="normal"
-            variant="outlined"
-            autoComplete="off"
-            fullWidth
-          />
-          <center>
-            <h1>Address</h1>
-          </center>
-
-          <TextField
-            label="Address"
-            name="address"
-            value={address}
-            onChange={setForm}
-            margin="normal"
-            variant="outlined"
-            autoComplete="off"
-            fullWidth
-          />
-          <TextField
-            label="City"
-            name="city"
-            value={city}
-            onChange={setForm}
-            margin="normal"
-            variant="outlined"
-            autoComplete="off"
-            fullWidth
-          />
-          <center>
-            <h1>Contact Information</h1>
-          </center>
-          <TextField
-            label="phone"
-            name="phone"
-            value={phone}
-            type="number"
-            onChange={setForm}
-            margin="normal"
-            variant="outlined"
-            autoComplete="off"
-            fullWidth
-          />
-          <TextField
-            label="Email"
-            name="email"
-            type="email"
-            value={email}
-            placeholder="test@test.com"
-            onChange={setForm}
-            margin="normal"
-            variant="outlined"
-            autoComplete="off"
-            fullWidth
-          />
-          <ButtonGroup style={{ marginTop: "1rem" }}>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={() => navigation.previous()}
-              style={{ marginRight: "1rem" }}
-            >
-              Back
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => navigation.next()}
-            >
-              Next
-            </Button>
-          </ButtonGroup>
-        </Form>
+        <Paper className={classes.paperStyles}>
+          <Form>
+            <Box mb={2}>
+              <center>
+                <Typography>Primary Information</Typography>
+              </center>
+            </Box>
+            <Box mb={2}>
+              <Field
+                label="Full Name"
+                name="fullName"
+                value={fullName}
+                component={TextField}
+                onChange={setForm}
+                variant="outlined"
+                fullWidth
+              />
+            </Box>
+            <Box mb={2}>
+              <center>
+                <Typography>Address</Typography>
+              </center>
+            </Box>
+            <Box mb={2}>
+              <Field
+                label="City"
+                name="city"
+                value={city}
+                onChange={setForm}
+                component={TextField}
+                variant="outlined"
+                fullWidth
+              />
+            </Box>
+            <Box mb={2}>
+              <center>
+                <h1>Contact Information</h1>
+              </center>
+            </Box>
+            <Box mb={2}>
+              <Box mb={2}>
+                <Field
+                  label="phone"
+                  name="phone"
+                  type="number"
+                  value={phone}
+                  component={TextField}
+                  onChange={setForm}
+                  variant="outlined"
+                  fullWidth
+                />
+              </Box>
+              <Box mb={2}>
+                <Field
+                  label="Email"
+                  name="email"
+                  type="email"
+                  value={userInfo.email}
+                  onChange={setForm}
+                  component={TextField}
+                  variant="outlined"
+                  fullWidth
+                />
+              </Box>
+            </Box>
+            <Box mb={2}>
+              <ButtonGroup style={{ marginTop: "1rem" }}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => navigation.previous()}
+                  style={{ marginRight: "1rem" }}
+                >
+                  Back
+                </Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => navigation.next()}
+                >
+                  Next
+                </Button>
+              </ButtonGroup>
+            </Box>
+          </Form>
+        </Paper>
       </Formik>
     </Container>
   );

@@ -46,11 +46,11 @@ const LoginForm = () => {
         <Form>
           <Box mb={3}>
             <Field
-              component={TextField}
-              variant="outlined"
-              name="email"
-              type="email"
               label="Email"
+              name="email"
+              component={TextField}
+              type="email"
+              variant="outlined"
               placeholder="example@example.com"
               fullWidth
             />

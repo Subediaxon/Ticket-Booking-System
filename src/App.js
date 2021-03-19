@@ -13,7 +13,7 @@ import Signup from "./Pages/SignupPage";
 import Login from "./Pages/LoginPage";
 import Address from "./Pages/Address";
 import Details from "./Pages/Details";
-import Navbar from "./components/Navbar";
+import ButtonAppBar from "./components/Nav-bar";
 
 import "./App.css";
 import { BookingForm } from "./components/BookingForm";
@@ -65,7 +65,7 @@ function App() {
       <Router>
         <QueryClientProvider client={queryClient}>
           <UserContextProvider>
-            <Navbar />
+            <ButtonAppBar />
             <AppRoutes />
           </UserContextProvider>
         </QueryClientProvider>

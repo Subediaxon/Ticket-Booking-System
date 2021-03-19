@@ -1,4 +1,5 @@
 import React from "react";
+import { useBookTicket } from "../../hooks/useTicket";
 import {
   Container,
   Button,
@@ -12,33 +13,44 @@ import AccordionDetail from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import EditIcon from "@material-ui/icons/Edit";
-import { defaultData } from "../BookingForm";
 
 export const Review = ({ formData, navigation }) => {
+  const { mutate: bookTicket } = useBookTicket();
   const { go } = navigation;
+
   const {
     destinationFrom,
     destinationTo,
     travelDate,
-    firstName,
-    lastName,
-    address,
+    fullName,
     city,
     phone,
     email,
   } = formData;
 
+  const handleBookTicket = (values, { setSubmitting }) => {
+    const valuesToSend = {
+      from: values.destinationFrom,
+      to: destinationTo,
+      date: travelDate,
+      phone: phone,
+      number: 1,
+    };
+    bookTicket(valuesToSend, {
+      onSuccess: (data) => {
+        console.log(data);
+        setSubmitting(false);
+      },
+      onError: (error) => {
+        console.log(error);
+        setSubmitting(false);
+      },
+    });
+  };
+
   return (
     <Container maxWidth="xs">
-      <Formik
-        initialValues={defaultData}
-        onSubmit={(formData, { setSubmitting }) => {
-          setTimeout(() => {
-            setSubmitting(false);
-            alert(JSON.stringify(formData, null, 2));
-          }, 500);
-        }}
-      >
+      <Formik initialValues={formData} onSubmit={handleBookTicket}>
         {({ submitForm, isSubmitting }) => (
           <Form>
             <h3 style={{ marginBottom: "1rem" }}>Review</h3>
@@ -55,9 +67,7 @@ export const Review = ({ formData, navigation }) => {
               summary="Information"
               go={go}
               details={[
-                { "First Name": firstName },
-                { "Last Name": lastName },
-                { Address: address },
+                { "Full Name": fullName },
                 { City: city },
                 { "Contact Number": phone },
                 { Email: email },

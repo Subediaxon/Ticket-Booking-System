@@ -1,5 +1,4 @@
-import { useHistory } from "react-router-dom";
-import { Grid, Typography, Button, Link, Paper, Box } from "@material-ui/core";
+import { Grid, Typography, Paper, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import SignupForm from "../components/SignupForm";
 
@@ -27,10 +26,9 @@ const Signup = () => {
           <Paper className={classes.paperStyles}>
             <Box mb={5} fontWeight="fontWeightBold">
               <Typography variant="h4" component="h1" align="center">
-                Let's join
+                Let's join!!!
               </Typography>
             </Box>
-
             <SignupForm />
           </Paper>
         </Grid>

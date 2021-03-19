@@ -3,11 +3,11 @@ import { publicFetch } from "../network/publicFetch";
 
 export const useAuth = (key) => {
   return useMutation(
-    ({ path, credentials }) =>
-      publicFetch
-        .post(path, credentials)
-        .then(({ data }) => data)
-        .catch((e) => e),
+    async ({ path, credentials }) => {
+      const { data } = await publicFetch.post(path, credentials);
+      return data;
+    },
+
     { mutationKey: key }
   );
 };
