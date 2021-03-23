@@ -1,18 +1,13 @@
 /*import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";*/
+import { useContext } from "react";
 import { Formik, Form, Field } from "formik";
 import { Button, LinearProgress, Box, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextField } from "formik-material-ui";
 import * as yup from "yup";
-import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 import { useAuth } from "../hooks/useAuth";
 import { useHistory } from "react-router";
-
-// import { useContext } from "react";
-// import { useAuth } from "../hooks/useAuth";
-// import { useHistory } from "react-router";
-// import { UserContext } from "../context/userContext";
 
 const validator = yup.object({
   firstname: yup.string().required(),
@@ -46,12 +41,19 @@ const SignupForm = () => {
   const classes = useStyles();
 
   const { setUserContext } = useContext(UserContext);
-  const { mutate: loginMutate } = useAuth("signup");
+  const { mutate: signupMutate } = useAuth("signup");
   const history = useHistory();
 
   const handleSubmit = (values, { setSubmitting }) => {
-    loginMutate(
-      { path: "/signup", credentials: values },
+    signupMutate(
+      {
+        path: "/signup",
+        credentials: {
+          ...values,
+          firstName: values.firstname,
+          lastName: values.lastname,
+        },
+      },
       {
         onSuccess: (data) => {
           setUserContext(data);

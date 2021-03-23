@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Button, Box, Paper, Typography } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
@@ -21,7 +20,7 @@ const useStyles = makeStyles({
 
 export const Booking = ({ formData, setForm, navigation }) => {
   const classes = useStyles();
-  const { destinationFrom, destinationTo } = formData;
+  const { destinationFrom, destinationTo, date } = formData;
 
   // let schema = yup.object().shape({
   //   destinationFrom: yup.string().required("Destination is required"),
@@ -30,8 +29,8 @@ export const Booking = ({ formData, setForm, navigation }) => {
 
   return (
     //available sizes: lg","md","sm","xl","xs"
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Container maxWidth="xs">
+    <Container maxWidth="xs">
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Formik initialValues={defaultData}>
           <Paper className={classes.paperStyles}>
             <Form>
@@ -65,13 +64,7 @@ export const Booking = ({ formData, setForm, navigation }) => {
                 />
               </Box>
               <Box mb={2}>
-                <Field
-                  component={DatePicker}
-                  label="Travel Date"
-                  name="travelDate"
-                  margin="normal"
-                  fullWidth
-                />
+                <Field component={DatePicker} label="Date-Time" name="date" />
               </Box>
 
               <Box marginTop={3}>
@@ -88,7 +81,7 @@ export const Booking = ({ formData, setForm, navigation }) => {
             </Form>
           </Paper>
         </Formik>
-      </Container>
-    </MuiPickersUtilsProvider>
+      </MuiPickersUtilsProvider>
+    </Container>
   );
 };

@@ -40,6 +40,9 @@ export default function ButtonAppBar() {
               <Button component={Link} to="/Booking" color="inherit">
                 Booking
               </Button>
+              <Button component={Link} to="/routes" color="inherit">
+                Routes
+              </Button>
               <Button component={Link} to="/Address" color="inherit">
                 Address
               </Button>

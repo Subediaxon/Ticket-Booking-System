@@ -1,12 +1,11 @@
 import { useContext } from "react";
+import { UserContext } from "../context/userContext";
+import { useAuth } from "../hooks/useAuth";
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
 import { useHistory } from "react-router-dom";
 import { Button, LinearProgress, Box } from "@material-ui/core";
 import * as yup from "yup";
-import { UserContext } from "../context/userContext";
-
-import { useAuth } from "../hooks/useAuth";
 
 const validator = yup.object({
   email: yup.string().email().required("Enter your email"),

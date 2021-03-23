@@ -89,7 +89,6 @@ export const Information = ({ formData, setForm, navigation }) => {
                   name="email"
                   type="email"
                   value={userInfo.email}
-                  onChange={setForm}
                   component={TextField}
                   variant="outlined"
                   fullWidth

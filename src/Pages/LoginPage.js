@@ -42,7 +42,7 @@ const Login = () => {
             </Box>
 
             <LoginForm />
-            <Link href="#" onClick={pushToForgotPass}>
+            <Link onClick={pushToForgotPass}>
               <Typography align="center">I forgot my password</Typography>
             </Link>
           </Paper>

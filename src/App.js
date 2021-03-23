@@ -14,9 +14,11 @@ import Login from "./Pages/LoginPage";
 import Address from "./Pages/Address";
 import Details from "./Pages/Details";
 import ButtonAppBar from "./components/Nav-bar";
+import TicketHistory from "./Pages/TIcketHistory";
 
 import "./App.css";
 import { BookingForm } from "./components/BookingForm";
+import BookingForm2 from "./components/BookingNew";
 
 const queryClient = new QueryClient();
 
@@ -50,7 +52,9 @@ const AppRoutes = () => {
       <AuthenticatedRoute path="/" exact>
         {Landing}
       </AuthenticatedRoute>
-      <AuthenticatedRoute path="/Booking">{BookingForm}</AuthenticatedRoute>
+      <AuthenticatedRoute path="/Booking">{BookingForm2}</AuthenticatedRoute>
+      <AuthenticatedRoute path="/routes">{TicketHistory}</AuthenticatedRoute>
+      <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Details">{Details}</AuthenticatedRoute>
       <UnauthenticatedRoutes path="/Login">{Login}</UnauthenticatedRoutes>

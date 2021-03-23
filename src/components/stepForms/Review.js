@@ -21,7 +21,7 @@ export const Review = ({ formData, navigation }) => {
   const {
     destinationFrom,
     destinationTo,
-    travelDate,
+    date,
     fullName,
     city,
     phone,
@@ -30,10 +30,11 @@ export const Review = ({ formData, navigation }) => {
 
   const handleBookTicket = (values, { setSubmitting }) => {
     const valuesToSend = {
+      fullName: values.fullName,
       from: values.destinationFrom,
-      to: destinationTo,
-      date: travelDate,
-      phone: phone,
+      to: values.destinationTo,
+      date: values.date,
+      phone: values.phone,
       number: 1,
     };
     bookTicket(valuesToSend, {
@@ -60,7 +61,7 @@ export const Review = ({ formData, navigation }) => {
               details={[
                 { "Destination From": destinationFrom },
                 { "Destination To": destinationTo },
-                { "Travel Date": travelDate },
+                { "Travel Date": date },
               ]}
             />
             <RenderAccordion

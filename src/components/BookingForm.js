@@ -6,7 +6,7 @@ import { Information } from "./stepForms/Info";
 export const defaultData = {
   destinationFrom: "",
   destinationTo: "",
-  travelDate: new Date(),
+  date: new Date(),
   fullName: "",
   city: "",
   phone: "",
