@@ -4,12 +4,15 @@ import {
   Typography,
   LinearProgress,
   Container,
+  Grid,
+  Paper,
 } from "@material-ui/core";
 import TeFi from "@material-ui/core/TextField";
 import ImgMediaCard from "./Pricecard";
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import SimpleDialogForm from "./Ask";
 
 //for the date picker
 import { DatePicker } from "formik-material-ui-pickers";
@@ -36,7 +39,7 @@ const defData = {
 
 const BookingForm2 = () => {
   return (
-    <Container maxWidth={"xs"}>
+    <Container maxWidth={"sm"}>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Formik
           initialValues={defData}
@@ -54,12 +57,14 @@ const BookingForm2 = () => {
                   <Typography>Booking</Typography>
                 </center>
               </Box>
+
               <Box mb={2}>
                 <Autocomplete
                   id="combo-box-from"
                   options={tickets}
                   getOptionLabel={(option) => option.from}
                   style={{ width: 300 }}
+                  fullWidth
                   onChange={(event, newValue) => {
                     if (newValue == null) return;
                     setValues({ ...values, from: newValue.from });
@@ -68,15 +73,8 @@ const BookingForm2 = () => {
                     <TeFi {...params} label="From" variant="outlined" />
                   )}
                 />
-
-                {/* <Field
-                  label=" From"
-                  name="destinationFrom"
-                  component={TextField}
-                  variant="outlined"
-                  fullWidth
-                /> */}
               </Box>
+
               <Box mb={2}>
                 <Autocomplete
                   id="combo-box-to"
@@ -92,15 +90,14 @@ const BookingForm2 = () => {
                   )}
                 />
               </Box>
-              {/* <Box mb={2}>
+
+              <Box mb={3}>
                 <Field
-                  label="Destination To"
-                  name="destinationTo"
-                  component={TextField}
-                  variant="outlined"
-                  fullWidth
+                  component={DatePicker}
+                  name="dateTime"
+                  label="Date Time"
                 />
-              </Box> */}
+              </Box>
               <Box mb={2}>
                 <Field
                   label="Full Name"
@@ -108,13 +105,6 @@ const BookingForm2 = () => {
                   component={TextField}
                   variant="outlined"
                   fullWidth
-                />
-              </Box>
-              <Box mb={3}>
-                <Field
-                  component={DatePicker}
-                  name="dateTime"
-                  label="Date Time"
                 />
               </Box>
 
@@ -147,8 +137,35 @@ const BookingForm2 = () => {
                   fullWidth
                 />
               </Box>
-              <Box mb={3}>
-                <ImgMediaCard />
+              <Box mb={3} fullWidth>
+                <Grid container>
+                  <Grid item xs={12} sm={4}>
+                    <ImgMediaCard
+                      seatClass="Economy"
+                      desc="Water bottle/Chips"
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={4}>
+                    <ImgMediaCard
+                      seatClass="Business"
+                      desc="Free food, drink"
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={4}>
+                    <ImgMediaCard
+                      seatClass="VIP"
+                      desc="free food, special bed, special beverages"
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
+              <Box mb={4}>
+                <Paper style={{ textAlign: "center" }}>
+                  <Typography variant="h5">
+                    Have you been to {values.to} ??
+                  </Typography>
+                  <SimpleDialogForm />
+                </Paper>
               </Box>
               {isSubmitting && <LinearProgress />}
               <Box mb={2}>

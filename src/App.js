@@ -52,7 +52,7 @@ const AppRoutes = () => {
       <AuthenticatedRoute path="/" exact>
         {Landing}
       </AuthenticatedRoute>
-      <AuthenticatedRoute path="/Booking">{BookingForm2}</AuthenticatedRoute>
+      <AuthenticatedRoute path="/Booking">{BookingForm}</AuthenticatedRoute>
       <AuthenticatedRoute path="/routes">{TicketHistory}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>

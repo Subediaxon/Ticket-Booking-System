@@ -38,7 +38,7 @@ const ContactUs = () => (
         {input.label}
 
         {input.type === 'textarea' ? (
-          <textarea className="form-textarea" placeholder={input.placeholder} />
+          <textarea className="form-textarea" placeholder={input.placeholder } />
         ) : (
           <input
             className="form-input"

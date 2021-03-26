@@ -19,6 +19,7 @@
     "formik-material-ui": "^3.0.1",
     "formik-material-ui-pickers": "0.0.12",
     "google-map-react": "^2.1.9",
+    "khalti-checkout-web": "^2.2.0",
     "material-ui-formik-components": "^0.7.3",
     "moment": "^2.29.1",
     "react": "^17.0.1",
