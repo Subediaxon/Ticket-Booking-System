@@ -15,6 +15,7 @@ import Address from "./Pages/Address";
 import Details from "./Pages/Details";
 import ButtonAppBar from "./components/Nav-bar";
 import TicketHistory from "./Pages/TIcketHistory";
+import AdminPannel from "./components/admin/AdminPage";
 
 import "./App.css";
 import { BookingForm } from "./components/BookingForm";
@@ -52,8 +53,8 @@ const AppRoutes = () => {
       <AuthenticatedRoute path="/" exact>
         {Landing}
       </AuthenticatedRoute>
-      <AuthenticatedRoute path="/Booking">{BookingForm}</AuthenticatedRoute>
-      <AuthenticatedRoute path="/routes">{TicketHistory}</AuthenticatedRoute>
+      <AuthenticatedRoute path="/Booking">{BookingForm2}</AuthenticatedRoute>
+      <AuthenticatedRoute path="/routes">{AdminPannel}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Details">{Details}</AuthenticatedRoute>
