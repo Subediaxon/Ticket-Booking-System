@@ -1,6 +1,6 @@
 import React from "react";
 import { Admin, Resource } from "react-admin";
-import Dashboard from "./Dashboard";
+
 import restProvider from "ra-data-simple-rest";
 import PostUserTicket from "./PostUserTicket";
 import TicketCreate from "./TicketCreate";
@@ -9,11 +9,7 @@ import UserList from "./UserList";
 
 function AdminPannel() {
   return (
-    <Admin
-      title="Admin"
-      dashboard={Dashboard}
-      dataProvider={restProvider("/api")}
-    >
+    <Admin title="Admin" dataProvider={restProvider("/api")}>
       <Resource
         name="ticket"
         list={PostUserTicket}
@@ -21,12 +17,18 @@ function AdminPannel() {
         // edit={TicketEdit}
       />
 
-      <Resource
+      {/* <Resource
         name="user"
         list={UserList}
         // create={UserCreate}
         // edit={UserEdit}
-      />
+      /> */}
+      {/* <Resource
+        name="routes"
+        list={availableroutes}
+        create={Createroutes}
+         edit={EditRoutes}
+      /> */}
     </Admin>
   );
 }

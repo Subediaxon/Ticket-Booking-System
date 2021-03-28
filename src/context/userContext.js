@@ -37,8 +37,14 @@ const UserContextProvider = ({ children }) => {
     setUserData({ userInfo, token, expiresAt });
   };
 
+  const isAdmin = () => {
+    return userData.userInfo.role === "admin";
+  };
+
   return (
-    <Provider value={{ userData, setUserContext, logout, isAuthenticated }}>
+    <Provider
+      value={{ userData, setUserContext, logout, isAuthenticated, isAdmin }}
+    >
       {children}
     </Provider>
   );

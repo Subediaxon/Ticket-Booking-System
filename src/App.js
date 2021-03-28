@@ -47,14 +47,27 @@ const AuthenticatedRoute = ({ children: Children, ...rest }) => {
   );
 };
 
+const AdminRoute = ({ children: Children, ...rest }) => {
+  const auth = useContext(UserContext);
+  return (
+    <Route
+      {...rest}
+      render={() => (auth.isAdmin() ? <Children /> : <Redirect to="/" />)}
+    ></Route>
+  );
+};
+
 const AppRoutes = () => {
   return (
     <Switch>
+      <AdminRoute path="/routes" exact>
+        {AdminPannel}
+      </AdminRoute>
       <AuthenticatedRoute path="/" exact>
         {Landing}
       </AuthenticatedRoute>
       <AuthenticatedRoute path="/Booking">{BookingForm2}</AuthenticatedRoute>
-      <AuthenticatedRoute path="/routes">{AdminPannel}</AuthenticatedRoute>
+      {/* <AuthenticatedRoute path="/routes">{AdminPannel}</AuthenticatedRoute> */}
       <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Details">{Details}</AuthenticatedRoute>
