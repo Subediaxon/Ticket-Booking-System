@@ -43,20 +43,20 @@ function SimpleDialog(props) {
       aria-labelledby="simple-dialog-title"
       open={open}
     >
-      <DialogTitle id="simple-dialog-title">Set backup account</DialogTitle>
+      <DialogTitle id="user-question">Choose your answer</DialogTitle>
       <List>
-        {replies.map((email) => (
+        {replies.map((reply) => (
           <ListItem
             button
-            onClick={() => handleListItemClick(email)}
-            key={email}
+            onClick={() => handleListItemClick(reply)}
+            key={reply}
           >
             <ListItemAvatar>
               <Avatar className={classes.avatar}>
                 <PersonIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary={email} />
+            <ListItemText primary={reply} />
           </ListItem>
         ))}
       </List>

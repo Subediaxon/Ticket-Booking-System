@@ -13,7 +13,6 @@ const Address = () => {
   return (
     <>
       <center>
-        <h1>This is a Address page</h1>
         <Map location={location} zoomLevel={17} />
       </center>
     </>

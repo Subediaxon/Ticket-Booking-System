@@ -143,18 +143,21 @@ const BookingForm2 = () => {
                     <ImgMediaCard
                       seatClass="Economy"
                       desc="Water bottle/Chips"
+                      price="10"
                     />
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     <ImgMediaCard
                       seatClass="Business"
                       desc="Free food, drink"
+                      price="5"
                     />
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     <ImgMediaCard
                       seatClass="VIP"
                       desc="free food, special bed, special beverages"
+                      price="2"
                     />
                   </Grid>
                 </Grid>

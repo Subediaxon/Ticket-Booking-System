@@ -14,7 +14,6 @@ import Login from "./Pages/LoginPage";
 import Address from "./Pages/Address";
 import Details from "./Pages/Details";
 import ButtonAppBar from "./components/Nav-bar";
-import TicketHistory from "./Pages/TIcketHistory";
 import AdminPannel from "./components/admin/AdminPage";
 
 import "./App.css";
@@ -52,7 +51,7 @@ const AdminRoute = ({ children: Children, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={() => (auth.isAdmin() ? <Children /> : <Redirect to="/" />)}
+      render={() => (auth.isAdmin() ? <Children /> : <Redirect to="/login" />)}
     ></Route>
   );
 };
@@ -67,7 +66,6 @@ const AppRoutes = () => {
         {Landing}
       </AuthenticatedRoute>
       <AuthenticatedRoute path="/Booking">{BookingForm2}</AuthenticatedRoute>
-      {/* <AuthenticatedRoute path="/routes">{AdminPannel}</AuthenticatedRoute> */}
       <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Details">{Details}</AuthenticatedRoute>

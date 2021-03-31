@@ -1,9 +1,7 @@
 const Landing = () => {
   return (
     <>
-      <center>
-        <h1>This is a landing page</h1>
-      </center>
+      <h1>This is a landing Pages</h1>
     </>
   );
 };

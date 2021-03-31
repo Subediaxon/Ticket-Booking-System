@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ImgMediaCard({ seatClass, desc }) {
+export default function ImgMediaCard({ seatClass, desc, price }) {
   const classes = useStyles();
 
   return (
@@ -33,6 +33,9 @@ export default function ImgMediaCard({ seatClass, desc }) {
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {desc}
+          </Typography>
+          <Typography variant="body2" color="textprimary" component="h5">
+            {price}
           </Typography>
         </CardContent>
         <Button size="small" color="primary">

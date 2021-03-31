@@ -31,7 +31,7 @@ export default function ButtonAppBar() {
       <AppBar position="static">
         <Toolbar>
           {userContext.isAdmin() ? (
-            <Link to="/routes" component={AdminPannel} />
+            <Link to="/admin" component={AdminPannel} />
           ) : (
             <>
               <Typography variant="h6" className={classes.title}>
@@ -45,9 +45,6 @@ export default function ButtonAppBar() {
                   </Button>
                   <Button component={Link} to="/Booking" color="inherit">
                     Booking
-                  </Button>
-                  <Button component={Link} to="/routes" color="inherit">
-                    Routes
                   </Button>
                   <Button component={Link} to="/Address" color="inherit">
                     Address
