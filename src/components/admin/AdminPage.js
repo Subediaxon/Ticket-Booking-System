@@ -12,6 +12,7 @@ import UserCreate from "./UserCreate";
 function AdminPannel() {
   return (
     <Admin
+      loginPage="false"
       title="Admin"
       dataProvider={restProvider("api")}
       authProvider={authProvider.logout}

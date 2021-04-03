@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
+import LoginForm from "../components/LoginForm";
 import { Grid, Typography, Link, Paper, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import LoginForm from "../components/LoginForm";
 
 const useStyles = makeStyles({
   paperStyles: {
@@ -17,10 +17,10 @@ const Login = () => {
   const history = useHistory();
   const classes = useStyles();
 
-  const pushToForgotPass = (event) => {
-    event.preventDefault();
-    history.push("/password/request");
-  };
+  // const pushToForgotPass = (event) => {
+  //   event.preventDefault();
+  //   history.push("/password/request");
+  // };
 
   return (
     <>
@@ -42,9 +42,10 @@ const Login = () => {
             </Box>
 
             <LoginForm />
-            <Link onClick={pushToForgotPass}>
+
+            {/* <Link onClick={pushToForgotPass}>
               <Typography align="center">I forgot my password</Typography>
-            </Link>
+            </Link> */}
           </Paper>
         </Grid>
       </Grid>

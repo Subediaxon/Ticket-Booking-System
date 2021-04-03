@@ -5,6 +5,7 @@ import {
   LinearProgress,
   Container,
   Grid,
+  Link,
   Paper,
 } from "@material-ui/core";
 import TeFi from "@material-ui/core/TextField";
@@ -168,6 +169,9 @@ const BookingForm2 = () => {
                     Have you been to {values.to} ??
                   </Typography>
                   <SimpleDialogForm />
+                  <Link>
+                    <Typography align="center">I forgot my password</Typography>
+                  </Link>
                 </Paper>
               </Box>
               {isSubmitting && <LinearProgress />}
