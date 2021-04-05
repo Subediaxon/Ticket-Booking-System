@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 const UserContext = createContext(null);
 const { Provider } = UserContext;
 
+//Creating a function to create tokens during signup and login
 const UserContextProvider = ({ children }) => {
   const history = useHistory();
 
@@ -23,6 +24,7 @@ const UserContextProvider = ({ children }) => {
     history.push("/login");
   };
 
+  //function to check if the route is authenticated- used for login
   const isAuthenticated = () => {
     if (!userData.token || !userData.expiresAt) {
       return false;
@@ -30,6 +32,7 @@ const UserContextProvider = ({ children }) => {
     return new Date().getTime() / 1000 < userData.expiresAt;
   };
 
+  //function to save user info during login
   const setUserContext = ({ userInfo, token, expiresAt }) => {
     localStorage.setItem("token", token);
     localStorage.setItem("expiresAt", expiresAt);
@@ -37,6 +40,7 @@ const UserContextProvider = ({ children }) => {
     setUserData({ userInfo, token, expiresAt });
   };
 
+  //function to check "admin" during login
   const isAdmin = () => {
     return userData.userInfo.role === "admin";
   };

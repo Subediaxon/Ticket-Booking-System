@@ -17,7 +17,7 @@ const AvailableRoutes = (props) => {
         <TextField source="route_from" />
         <TextField source="route_to" />
         <EmailField source="vehicle_number" />
-        <DateField source="travelDate" />
+        <DateField source="travel_Date" />
         <EditButton basePath="/routes" />
         <DeleteButton basePath="/routes" />
       </Datagrid>

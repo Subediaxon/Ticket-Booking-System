@@ -12,12 +12,10 @@ import Dialog from "@material-ui/core/Dialog";
 import PersonIcon from "@material-ui/icons/Person";
 import Typography from "@material-ui/core/Typography";
 import { blue } from "@material-ui/core/colors";
+import { Link } from "@material-ui/core";
 
-const replies = [
-  "Yes, I have been there before",
-  "No, its my first time.",
-  "I go there quite often.",
-];
+const replies = ["Yes", "No"];
+
 const useStyles = makeStyles({
   avatar: {
     backgroundColor: blue[100],
@@ -82,19 +80,41 @@ export default function SimpleDialogForm() {
     setOpen(false);
     setSelectedValue(value);
   };
-
-  return (
-    <div>
-      <Typography variant="subtitle1">Selected: {selectedValue}</Typography>
-      <br />
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Choose
-      </Button>
-      <SimpleDialog
-        selectedValue={selectedValue}
-        open={open}
-        onClose={handleClose}
-      />
-    </div>
-  );
+  if (selectedValue === "Yes") {
+    return (
+      <div>
+        <Typography variant="subtitle1">Selected: {selectedValue}</Typography>
+        <br />
+        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+          Choose
+        </Button>
+        <SimpleDialog
+          selectedValue={selectedValue}
+          open={open}
+          onClose={handleClose}
+        />
+        <br />
+        <Link>
+          <Typography align="center">
+            Click here to View hotel information
+          </Typography>
+        </Link>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Typography variant="subtitle1">Selected: {selectedValue}</Typography>
+        <br />
+        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+          Choose
+        </Button>
+        <SimpleDialog
+          selectedValue={selectedValue}
+          open={open}
+          onClose={handleClose}
+        />
+      </div>
+    );
+  }
 }

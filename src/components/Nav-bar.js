@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
-import AdminPannel from "./admin/AdminPage";
+import AdminPage from "./admin/AdminPage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,11 +31,11 @@ export default function ButtonAppBar() {
       <AppBar position="static">
         <Toolbar>
           {userContext.isAdmin() ? (
-            <Link to="/admin" component={AdminPannel} />
+            <Link to="/admin" component={AdminPage} />
           ) : (
             <>
               <Typography variant="h6" className={classes.title}>
-                Booking.com
+                Booking Nepal
               </Typography>
 
               {userContext.isAuthenticated() ? (
@@ -68,7 +68,6 @@ export default function ButtonAppBar() {
               )}
             </>
           )}
-          ;
         </Toolbar>
       </AppBar>
     </div>

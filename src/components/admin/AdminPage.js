@@ -7,7 +7,9 @@ import TicketCreate from "./TicketCreate";
 import TicketEdit from "./TicketEdit";
 import UserList from "./UserList";
 import UserEdit from "./UserEdit";
-import UserCreate from "./UserCreate";
+import Availableroutes from "./AvailableRoutes";
+import Createroutes from "./CreateRoutes";
+import EditRoutes from "./EditRoutes";
 
 function AdminPannel() {
   return (
@@ -17,12 +19,7 @@ function AdminPannel() {
       dataProvider={restProvider("api")}
       authProvider={authProvider.logout}
     >
-      <Resource
-        name="authenticate/getusers"
-        list={UserList}
-        create={UserCreate}
-        edit={UserEdit}
-      />
+      <Resource name="authenticate/getusers" list={UserList} edit={UserEdit} />
       <Resource
         name="ticket"
         list={PostUserTicket}
@@ -30,12 +27,12 @@ function AdminPannel() {
         // edit={TicketEdit}
       />
 
-      {/* <Resource
+      <Resource
         name="routes"
-        list={availableroutes}
+        list={Availableroutes}
         create={Createroutes}
-         edit={EditRoutes}
-      /> */}
+        edit={EditRoutes}
+      />
     </Admin>
   );
 }

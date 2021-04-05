@@ -7,18 +7,15 @@ import {
 } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { UserContextProvider, UserContext } from "./context/userContext";
-
 import Landing from "./Pages/LandingPage";
 import Signup from "./Pages/SignupPage";
 import Login from "./Pages/LoginPage";
 import Address from "./Pages/Address";
 import Details from "./Pages/Details";
 import ButtonAppBar from "./components/Nav-bar";
-import AdminPannel from "./components/admin/AdminPage";
-
+import AdminPage from "./components/admin/AdminPage";
+import Booking from "./Pages/BookingPage";
 import "./App.css";
-import { BookingForm } from "./components/BookingForm";
-import BookingForm2 from "./components/BookingNew";
 
 const queryClient = new QueryClient();
 
@@ -59,13 +56,13 @@ const AdminRoute = ({ children: Children, ...rest }) => {
 const AppRoutes = () => {
   return (
     <Switch>
-      <AdminRoute path="/routes" exact>
-        {AdminPannel}
+      <AdminRoute path="/admin" exact>
+        {AdminPage}
       </AdminRoute>
       <AuthenticatedRoute path="/" exact>
         {Landing}
       </AuthenticatedRoute>
-      <AuthenticatedRoute path="/Booking">{BookingForm2}</AuthenticatedRoute>
+      <AuthenticatedRoute path="/Booking">{Booking}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
       <AuthenticatedRoute path="/Details">{Details}</AuthenticatedRoute>
