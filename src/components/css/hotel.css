@@ -1,0 +1,9 @@
+img:hover {
+  scale: 2;
+  border-radius: 10%;
+}
+#desc-box {
+  font-style: italic;
+  text-align: justify;
+  max-width: 450;
+}

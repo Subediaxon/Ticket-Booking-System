@@ -15,6 +15,7 @@ import Details from "./Pages/Details";
 import ButtonAppBar from "./components/Nav-bar";
 import AdminPage from "./components/admin/AdminPage";
 import Booking from "./Pages/BookingPage";
+import Hotels from "./Pages/Hotels";
 import "./App.css";
 
 const queryClient = new QueryClient();
@@ -60,14 +61,14 @@ const AppRoutes = () => {
         {AdminPage}
       </AdminRoute>
       <AuthenticatedRoute path="/" exact>
-        {Landing}
+        {Hotels}
       </AuthenticatedRoute>
-      <AuthenticatedRoute path="/Booking">{Booking}</AuthenticatedRoute>
-      <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
-      <AuthenticatedRoute path="/Address">{Address}</AuthenticatedRoute>
-      <AuthenticatedRoute path="/Details">{Details}</AuthenticatedRoute>
-      <UnauthenticatedRoutes path="/Login">{Login}</UnauthenticatedRoutes>
-      <UnauthenticatedRoutes path="/Signup">{Signup}</UnauthenticatedRoutes>
+      <AuthenticatedRoute path="/booking">{Booking}</AuthenticatedRoute>
+      <AuthenticatedRoute path="/address">{Address}</AuthenticatedRoute>
+      <AuthenticatedRoute path="/details">{Details}</AuthenticatedRoute>
+      {/* <AuthenticatedRoute path="/hotels">{Hotels}</AuthenticatedRoute> */}
+      <UnauthenticatedRoutes path="/login">{Login}</UnauthenticatedRoutes>
+      <UnauthenticatedRoutes path="/signup">{Signup}</UnauthenticatedRoutes>
     </Switch>
   );
 };

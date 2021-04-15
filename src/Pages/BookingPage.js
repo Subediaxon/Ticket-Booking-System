@@ -12,8 +12,7 @@ let config = {
   // replace this key with yours
   publicKey: "test_public_key_c9af267539284f83a329b9e3f1d43f33",
   productIdentity: "1234567890",
-  productName: "Drogon",
-  productUrl: "http://gameofthrones.com/buy/Dragons",
+  productName: "Ticket",
   eventHandler: {
     onSuccess(payload) {
       // hit merchant api for initiating verfication
@@ -63,7 +62,12 @@ const BookingPage = () => {
           </center>
         </Box>
         <BookingForm2 />
-        <Button id="payment-button" ref={paymentButton} onClick={myfunc}>
+        <Button
+          id="payment-button"
+          ref={paymentButton}
+          onClick={myfunc}
+          variant="contained"
+        >
           Pay with khalti
         </Button>
       </Paper>

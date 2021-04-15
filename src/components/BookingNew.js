@@ -13,6 +13,7 @@ import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import SimpleDialogForm from "./Ask";
+import { tickets } from "./ValueList";
 
 //for the date picker
 import { DatePicker } from "formik-material-ui-pickers";
@@ -21,19 +22,12 @@ import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 // Depending on the library you picked
 import DateFnsUtils from "@date-io/date-fns";
 
-const tickets = [
-  { from: "kathmandu", to: "pokhara" },
-  { from: "kathmandu", to: "Biratnagar" },
-  { from: "Chitwan", to: "Biratnagar" },
-];
-
 const defData = {
   destinationFrom: "",
   destinationTo: "",
   dateTime: new Date(),
   fullName: "",
   phone: "",
-  email: "",
   email: "",
 };
 

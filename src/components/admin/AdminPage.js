@@ -31,7 +31,7 @@ function AdminPannel() {
         name="routes"
         list={Availableroutes}
         create={Createroutes}
-        edit={EditRoutes}
+        //edit={EditRoutes}
       />
     </Admin>
   );

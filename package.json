@@ -59,7 +59,9 @@
     ]
   },
   "devDependencies": {
+    "@iconify-icons/dashicons": "^1.1.0",
     "@iconify-icons/fa": "^1.1.0",
+    "@iconify-icons/simple-line-icons": "^1.1.0",
     "@iconify/react": "^2.0.0-rc.8"
   }
 }

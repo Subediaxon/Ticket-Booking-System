@@ -43,10 +43,10 @@ export default function ButtonAppBar() {
                   <Button component={Link} to="/" color="inherit">
                     Home
                   </Button>
-                  <Button component={Link} to="/Booking" color="inherit">
+                  <Button component={Link} to="/booking" color="inherit">
                     Booking
                   </Button>
-                  <Button component={Link} to="/Address" color="inherit">
+                  <Button component={Link} to="/address" color="inherit">
                     Address
                   </Button>
                   <Button component={Link} to="/Details" color="inherit">

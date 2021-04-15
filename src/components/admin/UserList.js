@@ -19,8 +19,8 @@ const UserList = (props) => {
         <TextField source="lastName" />
         <EmailField source="email" />
         <DateField source="userCreation" />
-        <EditButton basePath="/users" />
-        <DeleteButton basePath="/users" />
+        <EditButton basePath="./UserEdit" />
+        <DeleteButton basePath="./UserDelete" />
       </Datagrid>
     </List>
   );

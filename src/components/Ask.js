@@ -13,6 +13,7 @@ import PersonIcon from "@material-ui/icons/Person";
 import Typography from "@material-ui/core/Typography";
 import { blue } from "@material-ui/core/colors";
 import { Link } from "@material-ui/core";
+import Hotels from "../Pages/Hotels";
 
 const replies = ["Yes", "No"];
 
@@ -94,11 +95,11 @@ export default function SimpleDialogForm() {
           onClose={handleClose}
         />
         <br />
-        <Link>
+        <Button component={Link} to="/hotels" color="inherit">
           <Typography align="center">
             Click here to View hotel information
           </Typography>
-        </Link>
+        </Button>
       </div>
     );
   } else {
