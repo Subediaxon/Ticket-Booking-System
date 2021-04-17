@@ -12,8 +12,7 @@ import Dialog from "@material-ui/core/Dialog";
 import PersonIcon from "@material-ui/icons/Person";
 import Typography from "@material-ui/core/Typography";
 import { blue } from "@material-ui/core/colors";
-import { Link } from "@material-ui/core";
-import Hotels from "../Pages/Hotels";
+import { Link } from "react-router-dom";
 
 const replies = ["Yes", "No"];
 
@@ -81,9 +80,10 @@ export default function SimpleDialogForm() {
     setOpen(false);
     setSelectedValue(value);
   };
+
   if (selectedValue === "Yes") {
     return (
-      <div>
+      <>
         <Typography variant="subtitle1">Selected: {selectedValue}</Typography>
         <br />
         <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -96,11 +96,9 @@ export default function SimpleDialogForm() {
         />
         <br />
         <Button component={Link} to="/hotels" color="inherit">
-          <Typography align="center">
-            Click here to View hotel information
-          </Typography>
+          Click here to View hotel information
         </Button>
-      </div>
+      </>
     );
   } else {
     return (

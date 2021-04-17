@@ -1,0 +1,30 @@
+#container {
+  width: 120%;
+  height: auto;
+}
+figcaption {
+  color: aliceblue;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 2.5em;
+  position: absolute;
+  margin: 0 2rem;
+  bottom: 2rem;
+  right: 0rem;
+  font-style: italic;
+}
+#book-btn {
+  font-weight: bold;
+  width: max-content;
+  margin-left: 60%;
+  outline: 2px solid teal;
+}
+@media screen and (max-width: 768px) {
+  figcaption {
+    font-size: 1em;
+  }
+  #book-btn {
+    margin-left: 30%;
+    font-weight: normal;
+    outline: 2px solid teal;
+  }
+}

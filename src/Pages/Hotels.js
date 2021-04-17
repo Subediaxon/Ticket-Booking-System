@@ -1,4 +1,4 @@
-import { Grid, Paper, Box } from "@material-ui/core";
+import { Paper, Box } from "@material-ui/core";
 import HotelGrid from "./HotelGrid";
 import { makeStyles } from "@material-ui/core/styles";
 import { hotelList } from "../components/ValueList";
@@ -30,13 +30,7 @@ const renderIcons = () =>
 const Hotels = () => {
   const classes = useStyles();
 
-  return (
-    <Paper>
-      {renderIcons()}
-      {/* <Grid container container item xs={12} spacing={3}>
-        <Grid item> </Grid>
-      </Grid> */}
-    </Paper>
-  );
+  return <Paper className={classes.paperStyles}>{renderIcons()}</Paper>;
 };
+
 export default Hotels;

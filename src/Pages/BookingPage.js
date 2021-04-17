@@ -7,12 +7,14 @@ import { BookingForm } from "../components/BookingForm";
 
 import { Booking } from "../components/stepForms/Booking";
 import KhaltiCheckout from "khalti-checkout-web";
+import "../components/css/common.css";
 
 let config = {
   // replace this key with yours
   publicKey: "test_public_key_c9af267539284f83a329b9e3f1d43f33",
   productIdentity: "1234567890",
-  productName: "Ticket",
+  productName: "Dragon",
+  productUrl: "http://gameofthrones.wikia.com/wiki/Dragons",
   eventHandler: {
     onSuccess(payload) {
       // hit merchant api for initiating verfication
@@ -55,7 +57,7 @@ const BookingPage = () => {
 
   return (
     <Container maxWidth="md">
-      <Paper className={classes.paperStyles}>
+      <Paper className={classes.paperStyles} id="main">
         <Box mb={3.5}>
           <center>
             <Typography variant="h4">Booking</Typography>

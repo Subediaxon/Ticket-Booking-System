@@ -14,14 +14,14 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     margin: "auto",
     maxWidth: 1000,
-    maxHeight: 500,
+    maxHeight: 600,
   },
   desc: {
     maxWidth: 600,
   },
   image: {
-    width: 200,
-    height: 200,
+    width: 300,
+    height: 300,
   },
   img: {
     margin: "auto",
@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ComplexGrid({
+  id,
   hotel_name,
   description,
   price,
@@ -42,7 +43,7 @@ export default function ComplexGrid({
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="hotel-div">
       <Paper className={classes.paper}>
         <Grid container spacing={2}>
           <Grid item>

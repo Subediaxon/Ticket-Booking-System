@@ -15,7 +15,13 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ImgMediaCard({ seatClass, desc, price }) {
+export default function ImgMediaCard({
+  seatClass,
+  desc,
+  price,
+  data,
+  setData,
+}) {
   const classes = useStyles();
 
   return (
@@ -23,7 +29,7 @@ export default function ImgMediaCard({ seatClass, desc, price }) {
       <CardActionArea align="center">
         <CardMedia
           component="img"
-          alt="Contemplative Reptile"
+          alt="Ticket type"
           height="100"
           image={Logopic}
         />
@@ -31,17 +37,23 @@ export default function ImgMediaCard({ seatClass, desc, price }) {
           <Typography gutterBottom variant="h5" component="h2">
             {seatClass}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" component="p">
             {desc}
           </Typography>
-          <Typography variant="body2" color="textprimary" component="h5">
+          <Typography variant="body2" component="h5">
             {price}
           </Typography>
         </CardContent>
-        <Button size="small" color="primary">
+      </CardActionArea>
+      <CardActions>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => setData({ ...data, price })}
+        >
           Select
         </Button>
-      </CardActionArea>
+      </CardActions>
     </Card>
   );
 }

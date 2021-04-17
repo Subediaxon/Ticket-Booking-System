@@ -4,7 +4,6 @@ import {
   Typography,
   LinearProgress,
   Grid,
-  Link,
   Paper,
 } from "@material-ui/core";
 import TeFi from "@material-ui/core/TextField";
@@ -21,17 +20,42 @@ import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 
 // Depending on the library you picked
 import DateFnsUtils from "@date-io/date-fns";
+import { useBookTicket } from "../hooks/useTicket";
 
 const defData = {
   destinationFrom: "",
   destinationTo: "",
   dateTime: new Date(),
+  price: "10",
   fullName: "",
   phone: "",
   email: "",
 };
 
 const BookingForm2 = () => {
+  const { mutate: bookTicket } = useBookTicket();
+
+  const handleBookTicket = (values, { setSubmitting }) => {
+    const valuesToSend = {
+      fullName: values.fullName,
+      from: values.destinationFrom,
+      to: values.destinationTo,
+      date: values.date,
+      phone: values.phone,
+      number: 1,
+    };
+    bookTicket(valuesToSend, {
+      onSuccess: (data) => {
+        console.log(data);
+        setSubmitting(false);
+      },
+      onError: (error) => {
+        console.log(error);
+        setSubmitting(false);
+      },
+    });
+  };
+
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Formik
@@ -51,13 +75,17 @@ const BookingForm2 = () => {
                 options={tickets}
                 getOptionLabel={(option) => option.from}
                 style={{ width: 300 }}
-                fullWidth
                 onChange={(event, newValue) => {
                   if (newValue == null) return;
                   setValues({ ...values, from: newValue.from });
                 }}
                 renderInput={(params) => (
-                  <TeFi {...params} label="From" variant="outlined" />
+                  <TeFi
+                    {...params}
+                    id="id"
+                    label="destinationFrom"
+                    variant="outlined"
+                  />
                 )}
               />
             </Box>
@@ -73,18 +101,18 @@ const BookingForm2 = () => {
                   setValues({ ...values, to: newValue.to });
                 }}
                 renderInput={(params) => (
-                  <TeFi {...params} label="To" variant="outlined" />
+                  <TeFi
+                    {...params}
+                    id="id"
+                    label="destinationTo"
+                    variant="outlined"
+                  />
                 )}
               />
             </Box>
 
             <Box mb={3}>
-              <Field
-                component={DatePicker}
-                name="dateTime"
-                label="Date Time"
-                fullWidth
-              />
+              <Field component={DatePicker} name="dateTime" label="Date Time" />
             </Box>
 
             <Box mb={2}>
@@ -108,13 +136,15 @@ const BookingForm2 = () => {
               />
             </Box>
 
-            <Box mb={3} fullWidth>
+            <Box mb={3}>
               <Grid container>
                 <Grid item xs={12} sm={4}>
                   <ImgMediaCard
                     seatClass="Economy"
                     desc="Water bottle/Chips"
                     price="10"
+                    setData={setValues}
+                    data={values}
                   />
                 </Grid>
 
@@ -122,7 +152,9 @@ const BookingForm2 = () => {
                   <ImgMediaCard
                     seatClass="Business"
                     desc="Free food, drink"
-                    price="5"
+                    price="15"
+                    setData={setValues}
+                    data={values}
                   />
                 </Grid>
 
@@ -130,7 +162,9 @@ const BookingForm2 = () => {
                   <ImgMediaCard
                     seatClass="VIP"
                     desc="free food, special bed, special beverages"
-                    price="2"
+                    price="15"
+                    setData={setValues}
+                    data={values}
                   />
                 </Grid>
               </Grid>

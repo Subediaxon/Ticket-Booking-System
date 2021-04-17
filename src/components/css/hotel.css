@@ -1,7 +1,7 @@
-img:hover {
-  scale: 2;
-  border-radius: 10%;
+#hotel-div {
+  scroll-padding: 1rem 0 0 0;
 }
+
 #desc-box {
   font-style: italic;
   text-align: justify;

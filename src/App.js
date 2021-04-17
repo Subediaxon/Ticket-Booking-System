@@ -61,12 +61,12 @@ const AppRoutes = () => {
         {AdminPage}
       </AdminRoute>
       <AuthenticatedRoute path="/" exact>
-        {Hotels}
+        {Landing}
       </AuthenticatedRoute>
       <AuthenticatedRoute path="/booking">{Booking}</AuthenticatedRoute>
       <AuthenticatedRoute path="/address">{Address}</AuthenticatedRoute>
       <AuthenticatedRoute path="/details">{Details}</AuthenticatedRoute>
-      {/* <AuthenticatedRoute path="/hotels">{Hotels}</AuthenticatedRoute> */}
+      <AuthenticatedRoute path="/hotels">{Hotels}</AuthenticatedRoute>
       <UnauthenticatedRoutes path="/login">{Login}</UnauthenticatedRoutes>
       <UnauthenticatedRoutes path="/signup">{Signup}</UnauthenticatedRoutes>
     </Switch>
@@ -79,7 +79,7 @@ function App() {
       <Router>
         <QueryClientProvider client={queryClient}>
           <UserContextProvider>
-            <ButtonAppBar />
+            <ButtonAppBar position="sticky" />
             <AppRoutes />
           </UserContextProvider>
         </QueryClientProvider>

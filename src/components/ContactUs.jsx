@@ -13,11 +13,11 @@ const useStyles = makeStyles({
   },
 });
 
-const submit = (values) => {
+// const submit = (values) => {
       
-      alert(JSON.stringify(values, null, 2));
+//       alert(JSON.stringify(values, null, 2));
     
-  }
+//   }
 
 const formInputs = [
   { id: 'name', type: 'text', label: 'Your name', placeholder: 'name'},

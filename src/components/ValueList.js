@@ -12,7 +12,7 @@ export const hotelList = [
     description: "This is how a description is supposed to look.",
     location: "Gaushala, Kathmandu",
     price: "$2",
-    contact: "01-000001",
+    contact: "01-000001, +977 9909090",
     picture: Hotel1,
   },
   {
@@ -60,7 +60,7 @@ export const hotelList = [
 ];
 
 export const tickets = [
-  { from: "kathmandu", to: "pokhara" },
-  { from: "kathmandu", to: "Biratnagar" },
-  { from: "Chitwan", to: "Biratnagar" },
+  { id: 1, from: "kathmandu", to: "pokhara" },
+  { id: 2, from: "kathmandu", to: "Biratnagar" },
+  { id: 3, from: "Chitwan", to: "Biratnagar" },
 ];
