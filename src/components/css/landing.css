@@ -1,6 +1,6 @@
 #container {
-  width: 120%;
-  height: auto;
+  width: auto;
+  height: 90vh;
 }
 figcaption {
   color: aliceblue;

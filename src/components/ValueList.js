@@ -8,8 +8,9 @@ import Hotel6 from "../pictures/prometey-sanchez-noskov-pB7e8JL5KMI-unsplash.jpg
 export const hotelList = [
   {
     id: 1,
-    hotel_name: "Dwarika Hotel",
-    description: "This is how a description is supposed to look.",
+    hotel_name: "Hotel Saino ",
+    description:
+      "In central Pokhara, Hotel Splendid View is a 1-minute walk from the Royal Palace. This charming hotel features free Wi-Fi, free parking and air-conditioned rooms with a private balcony. Near the lake, Splendid View Hotel is a 5-minute drive from the Tourist Bus Park and an 8-minute drive from Pokhara Airport. The Central Bus Stand is a 15-minute drive from the hotel.  The cozy rooms have soothing colors and hardwood floors. Each well-furnished room has a cable TV and a bathroom with shower facilities. Guests enjoy views of the mountains or lake.",
     location: "Gaushala, Kathmandu",
     price: "$2",
     contact: "01-000001, +977 9909090",
@@ -19,10 +20,10 @@ export const hotelList = [
     id: 2,
     hotel_name: "Naya Hotel",
     description:
-      "This is how a multiline description is supposed to look. This may look big. But I need to manage this in any possible way.This is how a multiline description is supposed to look. This may look big. But I need to manage this in any possible way.",
+      "Panoramic views of Fewa Lake and snowcapped mountains accompany meals at the rooftop restaurant. Available for all-day dining, it features Indian, Chinese and European dishes.With a 24-hour front desk, the hotel provides newspapers and shuttle services. Trekking and rafting tours can be arranged at the on-site tour desk.This is our guests' favorite part of Pokhara, according to independent reviews. Couples in particular like the location – they rated it 9.2 for a two-person trip.",
     location: "Gaushala, Kathmandu",
-    price: "$2",
-    contact: "01-000001",
+    price: "$5",
+    contact: "01-000694",
     picture: Hotel2,
   },
   {

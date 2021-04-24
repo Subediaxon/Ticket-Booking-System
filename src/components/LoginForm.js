@@ -8,8 +8,14 @@ import { Button, LinearProgress, Box } from "@material-ui/core";
 import * as yup from "yup";
 
 const validator = yup.object({
-  email: yup.string().email().required("Enter your email"),
-  password: yup.string().required("Enter your password"),
+  email: yup
+    .string("Enter your email")
+    .email("Enter a valid email")
+    .required("Email is required"),
+  password: yup
+    .string("Enter your password")
+    .min(8, "Password should be of minimum 8 characters length")
+    .required("Password is required"),
 });
 
 const formInitValues = {

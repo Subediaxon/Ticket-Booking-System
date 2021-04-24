@@ -1,3 +1,5 @@
+import { React, useContext } from "react";
+import { UserContext } from "../context/userContext";
 import {
   Button,
   Box,
@@ -23,27 +25,30 @@ import DateFnsUtils from "@date-io/date-fns";
 import { useBookTicket } from "../hooks/useTicket";
 
 const defData = {
-  destinationFrom: "",
-  destinationTo: "",
   dateTime: new Date(),
   price: "10",
   fullName: "",
   phone: "",
-  email: "",
 };
 
 const BookingForm2 = () => {
   const { mutate: bookTicket } = useBookTicket();
+  const {
+    userData: { userInfo },
+  } = useContext(UserContext);
 
   const handleBookTicket = (values, { setSubmitting }) => {
+    console.log(values);
     const valuesToSend = {
       fullName: values.fullName,
-      from: values.destinationFrom,
-      to: values.destinationTo,
-      date: values.date,
+      from: values.from,
+      to: values.to,
+      date: values.dateTime,
       phone: values.phone,
       number: 1,
+      price: values.price,
     };
+
     bookTicket(valuesToSend, {
       onSuccess: (data) => {
         console.log(data);
@@ -60,12 +65,13 @@ const BookingForm2 = () => {
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Formik
         initialValues={defData}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            setSubmitting(false);
-            alert(JSON.stringify(values, null, 2));
-          }, 500);
-        }}
+        onSubmit={handleBookTicket}
+        // onSubmit={(values, { setSubmitting }) => {
+        //   setTimeout(() => {
+        //     setSubmitting(false);
+        //     alert(JSON.stringify(values, null, 2));
+        //   }, 500);
+        // }}
       >
         {({ submitForm, isSubmitting, setValues, values }) => (
           <Form>
